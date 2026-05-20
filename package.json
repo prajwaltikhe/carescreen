@@ -1,0 +1,25 @@
+{
+  "name": "carescreen",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run start:dev -w backend\" \"npm run dev -w frontend\"",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "db:up": "docker compose up -d",
+    "db:migrate": "npm run prisma:migrate -w backend"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.0.1",
+    "@playwright/test": "^1.52.0",
+    "@vitest/coverage-v8": "^4.0.0",
+    "concurrently": "^9.1.2",
+    "reflect-metadata": "^0.2.2",
+    "vitest": "^4.0.0"
+  }
+}
